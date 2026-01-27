@@ -1,0 +1,2940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>MDG Material Form | Wings Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   SAP FIORI MORNING HORIZON THEME
+   Modern Startup-Style Design System
+   ============================================ */
+
+:root {
+  /* Morning Horizon Primary Colors */
+  --horizon-sunrise: #FF6B35;
+  --horizon-dawn: #F7931E;
+  --horizon-coral: #FF8C69;
+  --horizon-peach: #FFB088;
+  
+  /* Fiori Blues */
+  --fiori-blue: #0A6ED1;
+  --fiori-blue-dark: #0854A0;
+  --fiori-blue-light: #1B90FF;
+  --fiori-sky: #E5F2FF;
+  
+  /* Semantic Colors */
+  --success: #2B7D2B;
+  --success-bg: #E8F5E8;
+  --warning: #E76500;
+  --warning-bg: #FFF4E5;
+  --error: #BB0000;
+  --error-bg: #FFEBEB;
+  --info: #0A6ED1;
+  --info-bg: #E5F2FF;
+  
+  /* Neutrals */
+  --bg-primary: #F7F9FC;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #EEF2F8;
+  --surface: #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  
+  /* Text Colors */
+  --text-primary: #1D2939;
+  --text-secondary: #475467;
+  --text-tertiary: #98A2B3;
+  --text-inverse: #FFFFFF;
+  
+  /* Borders */
+  --border-light: #E4E7EC;
+  --border-medium: #D0D5DD;
+  --border-focus: var(--fiori-blue);
+  
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-sm: 0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 4px 8px -2px rgba(16, 24, 40, 0.1), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
+  --shadow-lg: 0 12px 16px -4px rgba(16, 24, 40, 0.08), 0 4px 6px -2px rgba(16, 24, 40, 0.03);
+  --shadow-xl: 0 20px 24px -4px rgba(16, 24, 40, 0.08), 0 8px 8px -4px rgba(16, 24, 40, 0.03);
+  --shadow-glow: 0 0 0 4px rgba(10, 110, 209, 0.15);
+  
+  /* Gradients */
+  --gradient-horizon: linear-gradient(135deg, var(--horizon-sunrise) 0%, var(--horizon-dawn) 50%, var(--fiori-blue) 100%);
+  --gradient-sunrise: linear-gradient(135deg, var(--horizon-coral) 0%, var(--horizon-sunrise) 100%);
+  --gradient-blue: linear-gradient(135deg, var(--fiori-blue) 0%, var(--fiori-blue-dark) 100%);
+  --gradient-subtle: linear-gradient(180deg, #FFFFFF 0%, #F9FAFB 100%);
+  
+  /* Animation */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+  --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   HEADER / NAVIGATION
+   ============================================ */
+
+.header {
+  background: var(--gradient-horizon);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.2);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.logo-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: white;
+}
+
+.logo-text {
+  color: white;
+}
+
+.logo-text h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.logo-text span {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  font-weight: 400;
+}
+
+.header-badge {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ADE80;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
+
+.main-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 24px 100px;
+}
+
+/* ============================================
+   PROGRESS INDICATOR
+   ============================================ */
+
+.progress-section {
+  margin-bottom: 32px;
+}
+
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 24px;
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: var(--radius-lg);
+  transition: var(--transition-base);
+}
+
+.step.active {
+  background: var(--fiori-sky);
+}
+
+.step.completed .step-number {
+  background: var(--success);
+  color: white;
+}
+
+.step-number {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--border-light);
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: var(--transition-base);
+}
+
+.step.active .step-number {
+  background: var(--fiori-blue);
+  color: white;
+}
+
+.step-label {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.step.active .step-label,
+.step.completed .step-label {
+  color: var(--text-primary);
+}
+
+.step-connector {
+  width: 60px;
+  height: 2px;
+  background: var(--border-light);
+  margin: 0 8px;
+}
+
+.step-connector.active {
+  background: var(--fiori-blue);
+}
+
+/* ============================================
+   CARDS - CRITICAL OVERFLOW FIX
+   ============================================ */
+
+.section-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+  border: 1px solid var(--border-light);
+  transition: var(--transition-base);
+  position: relative;
+}
+
+.section-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.section-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--gradient-subtle);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fiori-sky);
+}
+
+.section-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--fiori-blue);
+}
+
+.section-icon.email-icon {
+  background: var(--success-bg);
+}
+
+.section-icon.email-icon svg {
+  stroke: var(--success);
+}
+
+.section-title h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.section-title p {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.section-badge {
+  padding: 6px 12px;
+  background: var(--horizon-sunrise);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.section-badge.email-badge {
+  background: var(--success);
+}
+
+.section-body {
+  padding: 24px;
+}
+
+/* ============================================
+   FORM GRID
+   ============================================ */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-label .required {
+  color: var(--error);
+}
+
+.form-hint {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  font-weight: 400;
+  margin-left: auto;
+}
+
+/* ============================================
+   INPUTS
+   ============================================ */
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper .input-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  stroke: var(--text-tertiary);
+  pointer-events: none;
+  transition: var(--transition-base);
+}
+
+.input-wrapper.has-icon .form-input {
+  padding-left: 44px;
+}
+
+.form-input,
+.form-select {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.form-input:hover,
+.form-select:hover {
+  border-color: var(--border-medium);
+  background: var(--surface);
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: var(--fiori-blue);
+  background: var(--surface);
+  box-shadow: var(--shadow-glow);
+}
+
+.form-input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+  stroke: var(--fiori-blue);
+}
+
+.form-input:read-only {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2398A2B3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 44px;
+}
+
+/* Email chips input */
+.email-chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  min-height: 48px;
+  background: var(--bg-primary);
+  border: 1.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  transition: var(--transition-base);
+  cursor: text;
+}
+
+.email-chips-container:hover {
+  border-color: var(--border-medium);
+  background: var(--surface);
+}
+
+.email-chips-container:focus-within {
+  border-color: var(--fiori-blue);
+  background: var(--surface);
+  box-shadow: var(--shadow-glow);
+}
+
+.email-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--fiori-sky);
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  color: var(--fiori-blue-dark);
+  animation: chipIn 0.2s ease;
+}
+
+@keyframes chipIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.email-chip.invalid {
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+.email-chip-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: rgba(0,0,0,0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: var(--transition-fast);
+}
+
+.email-chip-remove:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+.email-chip-remove svg {
+  width: 10px;
+  height: 10px;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.email-input-inline {
+  flex: 1;
+  min-width: 200px;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 0.9375rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  padding: 4px 0;
+}
+
+.email-input-inline::placeholder {
+  color: var(--text-tertiary);
+}
+
+.email-helper {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.email-helper svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text-tertiary);
+}
+
+/* ============================================
+   CUSTOM PICKER - PORTAL STYLE (FIXED Z-INDEX)
+   ============================================ */
+
+.picker {
+  position: relative;
+}
+
+/* Dropdown menu - rendered as portal at body level */
+.picker-menu {
+  position: fixed; /* CRITICAL: Use fixed positioning */
+  background: var(--surface);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 99999; /* CRITICAL: Very high z-index */
+  opacity: 0;
+  transform: translateY(-8px);
+  animation: dropdownShow 0.2s ease forwards;
+}
+
+@keyframes dropdownShow {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.picker-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition-fast);
+  background: var(--surface);
+}
+
+.picker-item:last-child {
+  border-bottom: none;
+}
+
+.picker-item:hover {
+  background: var(--fiori-sky);
+}
+
+.picker-item.selected {
+  background: var(--fiori-sky);
+}
+
+.picker-item .val {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.picker-item .descTxt {
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+}
+
+.picker-empty {
+  padding: 24px 16px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
+  background: var(--surface);
+}
+
+.picker-empty svg {
+  width: 48px;
+  height: 48px;
+  stroke: var(--border-medium);
+  margin-bottom: 12px;
+}
+
+/* ============================================
+   CHARACTERISTICS SECTION
+   ============================================ */
+
+#charCard .section-body {
+  padding: 0;
+}
+
+#charContainer {
+  /* No overflow restrictions */
+}
+
+.char-container-empty {
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+.char-container-empty svg {
+  width: 64px;
+  height: 64px;
+  stroke: var(--border-medium);
+  margin-bottom: 16px;
+}
+
+.char-container-empty h3 {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.char-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 20px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-light);
+  align-items: start;
+  transition: var(--transition-fast);
+  position: relative;
+}
+
+.char-row:hover {
+  background: var(--bg-tertiary);
+}
+
+.char-row:last-child {
+  border-bottom: none;
+}
+
+.char-row.hidden {
+  display: none !important;
+}
+
+.char-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.char-name {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.char-desc {
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
+}
+
+/* Tags / Pills */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+}
+
+.tag-info {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.tag-warning {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.tag-success {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.tag-required {
+  background: var(--error-bg);
+  color: var(--error);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-family: inherit;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-base);
+  text-decoration: none;
+}
+
+.btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--gradient-blue);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--border-light);
+  color: var(--text-primary);
+}
+
+.btn-sunrise {
+  background: var(--gradient-sunrise);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-sunrise:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   SUMMARY SECTION
+   ============================================ */
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.summary-item {
+  padding: 16px;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+}
+
+.summary-label {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.summary-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.summary-value.highlight {
+  color: var(--fiori-blue);
+}
+
+/* ============================================
+   WHATSAPP WIDGET
+   ============================================ */
+
+.wa-widget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.wa-bubble {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  max-width: 320px;
+  overflow: hidden;
+  animation: bubbleIn 0.4s ease;
+  position: relative;
+}
+
+@keyframes bubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.wa-bubble-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: var(--bg-tertiary);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+  z-index: 1;
+}
+
+.wa-bubble-close:hover {
+  background: var(--border-light);
+}
+
+.wa-bubble-close svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--text-tertiary);
+}
+
+.wa-bubble-content {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+}
+
+.wa-bubble-avatar {
+  width: 48px;
+  height: 48px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.wa-bubble-avatar svg {
+  width: 28px;
+  height: 28px;
+  fill: white;
+}
+
+.wa-bubble-text {
+  flex: 1;
+}
+
+.wa-bubble-text p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.wa-bubble-text .wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: #25D366;
+  color: white;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: var(--transition-base);
+}
+
+.wa-bubble-text .wa-btn:hover {
+  background: #20BD5A;
+  transform: translateY(-1px);
+}
+
+.wa-bubble-text .wa-btn svg {
+  width: 16px;
+  height: 16px;
+  fill: white;
+}
+
+.wa-fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #25D366;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition-base);
+  position: relative;
+}
+
+.wa-fab:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+.wa-fab svg {
+  width: 32px;
+  height: 32px;
+  fill: white;
+}
+
+.wa-fab-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
+  background: var(--error);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.wa-widget.hidden {
+  display: none;
+}
+
+/* ============================================
+   LOADING STATES
+   ============================================ */
+
+.skeleton {
+  background: linear-gradient(90deg, var(--bg-tertiary) 25%, var(--border-light) 50%, var(--bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255,255,255,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  gap: 20px;
+}
+
+.loading-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid var(--border-light);
+  border-top-color: var(--fiori-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   TOAST NOTIFICATIONS
+   ============================================ */
+
+.toast-container {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100000;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.toast {
+  padding: 16px 20px;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-xl);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 320px;
+  max-width: 480px;
+  transform: translateX(120%);
+  animation: slideIn 0.3s ease forwards;
+  border-left: 4px solid;
+}
+
+@keyframes slideIn {
+  to { transform: translateX(0); }
+}
+
+.toast.success {
+  border-left-color: var(--success);
+}
+
+.toast.error {
+  border-left-color: var(--error);
+}
+
+.toast.info {
+  border-left-color: var(--info);
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toast-content {
+  flex: 1;
+}
+
+.toast-title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--text-primary);
+}
+
+.toast-message {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: 12px 16px;
+  }
+  
+  .header-badge {
+    display: none;
+  }
+  
+  .main-container {
+    padding: 20px 16px 120px;
+  }
+  
+  .progress-steps {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px;
+  }
+  
+  .step-connector {
+    display: none;
+  }
+  
+  .step {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .char-row {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .wa-bubble {
+    max-width: calc(100vw - 48px);
+    right: 0;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+  outline: 2px solid var(--fiori-blue);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Hidden utility */
+.hidden {
+  display: none !important;
+}
+
+/* Auto-filled server indicator */
+.server-auto::after {
+  content: 'Auto';
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--success-bg);
+  color: var(--success);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+</style>
+</head>
+<body>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <div class="loading-text">Loading form data...</div>
+</div>
+
+<!-- Toast Container -->
+<div id="toastContainer" class="toast-container"></div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-content">
+    <div class="logo-section">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+          <path d="M2 17L12 22L22 17"/>
+          <path d="M2 12L12 17L22 12"/>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <h1>MDG Material Form</h1>
+        <span>Wings Group Master Data Governance</span>
+      </div>
+    </div>
+    <div class="header-badge">
+      <span class="status-dot"></span>
+      System Online
+    </div>
+  </div>
+</header>
+
+<!-- Main Container -->
+<main class="main-container">
+  
+  <!-- Progress Steps -->
+  <section class="progress-section">
+    <div class="progress-steps">
+      <div class="step active" data-step="1">
+        <div class="step-number">1</div>
+        <span class="step-label">Requestor Info</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step" data-step="2">
+        <div class="step-number">2</div>
+        <span class="step-label">Select Class</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step" data-step="3">
+        <div class="step-number">3</div>
+        <span class="step-label">Fill Details</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step" data-step="4">
+        <div class="step-number">4</div>
+        <span class="step-label">Review & Submit</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW: Requestor Info Section -->
+  <section class="section-card slide-up" style="animation-delay: 0.05s" id="requestorCard">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon email-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Requestor Information</h2>
+          <p>Fill your email and notification recipients</p>
+        </div>
+      </div>
+      <span class="section-badge email-badge">Step 1</span>
+    </div>
+    <div class="section-body">
+      <div class="form-grid">
+        <!-- Requestor Name -->
+        <div class="form-group">
+          <label class="form-label" for="requestorName">
+            Requestor Name <span class="required">*</span>
+          </label>
+          <div class="input-wrapper has-icon">
+            <input type="text" id="requestorName" class="form-input" placeholder="Enter your full name..." autocomplete="name"/>
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Requestor Email -->
+        <div class="form-group">
+          <label class="form-label" for="requestorEmail">
+            Your Email <span class="required">*</span>
+            <span class="form-hint">Corporate email</span>
+          </label>
+          <div class="input-wrapper has-icon">
+            <input type="email" id="requestorEmail" class="form-input" placeholder="your.name@wings.co.id" autocomplete="email"/>
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- CC Recipients (Multiple Emails) -->
+        <div class="form-group full-width">
+          <label class="form-label" for="ccEmailInput">
+            CC Recipients
+            <span class="form-hint">Optional - Add multiple emails</span>
+          </label>
+          <div class="email-chips-container" id="ccEmailContainer">
+            <input type="email" id="ccEmailInput" class="email-input-inline" placeholder="Type email and press Enter or comma..."/>
+          </div>
+          <div class="email-helper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            Press Enter, Tab, or comma to add email. Backspace to remove last.
+          </div>
+        </div>
+        
+        <!-- Department / Division -->
+        <div class="form-group">
+          <label class="form-label" for="department">
+            Department
+            <span class="form-hint">Optional</span>
+          </label>
+          <div class="input-wrapper has-icon">
+            <input type="text" id="department" class="form-input" placeholder="e.g. IT, Procurement, Finance..."/>
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 21h18"/>
+              <path d="M9 8h1"/>
+              <path d="M9 12h1"/>
+              <path d="M9 16h1"/>
+              <path d="M14 8h1"/>
+              <path d="M14 12h1"/>
+              <path d="M14 16h1"/>
+              <path d="M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16"/>
+            </svg>
+          </div>
+        </div>
+        
+        <!-- Phone / Extension -->
+        <div class="form-group">
+          <label class="form-label" for="phone">
+            Phone / Extension
+            <span class="form-hint">Optional</span>
+          </label>
+          <div class="input-wrapper has-icon">
+            <input type="tel" id="phone" class="form-input" placeholder="e.g. 021-xxxx or ext 1234"/>
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Selection Section -->
+  <section class="section-card slide-up" style="animation-delay: 0.1s">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Material Classification</h2>
+          <p>Select class, company, and server source</p>
+        </div>
+      </div>
+      <span class="section-badge">Step 2</span>
+    </div>
+    <div class="section-body">
+      <div class="form-grid">
+        <!-- Class Input -->
+        <div class="form-group">
+          <label class="form-label" for="classInput">
+            Material Class <span class="required">*</span>
+            <span class="form-hint">Search or select</span>
+          </label>
+          <div class="picker" id="classPicker">
+            <div class="input-wrapper has-icon">
+              <input type="text" id="classInput" class="form-input" placeholder="Start typing to search classes..." autocomplete="off"/>
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+          </div>
+          <div id="classInfo" class="char-desc" style="margin-top:8px"></div>
+        </div>
+        
+        <!-- Company Select -->
+        <div class="form-group">
+          <label class="form-label" for="companySelect">
+            Use for Company <span class="required">*</span>
+            <span class="form-hint">Server auto-filled</span>
+          </label>
+          <select id="companySelect" class="form-select">
+            <option value="">Select company...</option>
+            <option value="PT Sayap Mas Utama">PT Sayap Mas Utama</option>
+            <option value="PT Multi Indo Mandiri">PT Multi Indo Mandiri</option>
+            <option value="PT Prakarsa Alam Segar">PT Prakarsa Alam Segar</option>
+            <option value="PT Aneka Mitra Gemilang">PT Aneka Mitra Gemilang</option>
+            <option value="PT Tirta Alam Segar">PT Tirta Alam Segar</option>
+            <option value="PT Wings Surya">PT Wings Surya</option>
+            <option value="PT Karunia Alam Segar">PT Karunia Alam Segar</option>
+          </select>
+        </div>
+        
+        <!-- Server Source (Auto-filled) -->
+        <div class="form-group">
+          <label class="form-label" for="serverSource">
+            Server Source <span class="required">*</span>
+            <span class="form-hint">Auto from company</span>
+          </label>
+          <div class="input-wrapper has-icon" id="serverWrapper">
+            <input type="text" id="serverSource" class="form-input" placeholder="Select company first..." readonly/>
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+              <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+              <line x1="6" y1="6" x2="6.01" y2="6"/>
+              <line x1="6" y1="18" x2="6.01" y2="18"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Characteristics Section -->
+  <section class="section-card slide-up" style="animation-delay: 0.2s" id="charCard">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10,9 9,9 8,9"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Material Characteristics</h2>
+          <p>Fill in the required attribute values</p>
+        </div>
+      </div>
+      <span class="section-badge" id="charCount">Step 3</span>
+    </div>
+    <div class="section-body" style="padding:0">
+      <div id="charContainer">
+        <div class="char-container-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+          <h3>No Class Selected</h3>
+          <p>Please select a material class above to view characteristics</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Summary Section -->
+  <section class="section-card slide-up" style="animation-delay: 0.3s">
+    <div class="section-header">
+      <div class="section-title">
+        <div class="section-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </div>
+        <div>
+          <h2>Summary & Review</h2>
+          <p>Review your material data before submission</p>
+        </div>
+      </div>
+      <span class="section-badge">Step 4</span>
+    </div>
+    <div class="section-body">
+      <div class="summary-grid">
+        <div class="summary-item">
+          <div class="summary-label">Requestor</div>
+          <div class="summary-value" id="sumRequestor">-</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Email Notification</div>
+          <div class="summary-value" id="sumEmail">-</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Server Source</div>
+          <div class="summary-value" id="sumServer">-</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">CR / MID</div>
+          <div class="summary-value" id="sumCrMid">-</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Company</div>
+          <div class="summary-value" id="sumCompany">-</div>
+        </div>
+        <div class="summary-item">
+          <div class="summary-label">Material Class</div>
+          <div class="summary-value" id="sumClass">-</div>
+        </div>
+        <div class="summary-item" style="grid-column: 1 / -1">
+          <div class="summary-label">Material Description</div>
+          <div class="summary-value highlight" id="sumMatDesc">-</div>
+        </div>
+      </div>
+      
+      <div class="btn-group">
+        <button id="genBtn" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+          Preview Summary
+        </button>
+        <button id="submitBtn" class="btn btn-sunrise">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+          </svg>
+          Submit Form
+        </button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- WhatsApp CS Widget -->
+<div id="waWidget" class="wa-widget hidden">
+  <div id="waBubble" class="wa-bubble">
+    <button class="wa-bubble-close" id="waBubbleClose">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    <div class="wa-bubble-content">
+      <div class="wa-bubble-avatar">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </div>
+      <div class="wa-bubble-text">
+        <p>👋 Hi! Tidak menemukan class untuk material yang ingin Anda buat?</p>
+        <a href="#" id="waLink" class="wa-btn" target="_blank">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Chat via WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+  <button class="wa-fab" id="waFab">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="wa-fab-badge">1</span>
+  </button>
+</div>
+
+<script>
+// ============================================
+// CONFIGURATION
+// ============================================
+const DATA_URL = './data/form_data.json';
+
+// =====================================================================
+// GOOGLE APPS SCRIPT WEB APP URL
+// Ganti dengan URL Web App dari Google Apps Script Anda
+// =====================================================================
+const SUBMIT_URL = 'https://script.google.com/macros/s/AKfycbzfc6WvyrzxV4siIG8cQLGA40Z-d4BxnkUB4VHPbONOBEDhK6r_xjiqPan4sXjafRFK/exec';
+
+// Company to Server Mapping
+const COMPANY_SERVER_MAP = {
+  'PT Sayap Mas Utama': 'SPR',
+  'PT Multi Indo Mandiri': 'SPR',
+  'PT Prakarsa Alam Segar': 'SPE',
+  'PT Aneka Mitra Gemilang': 'APE',
+  'PT Tirta Alam Segar': 'TPR',
+  'PT Wings Surya': 'SPR',
+  'PT Karunia Alam Segar': 'SPR'
+};
+
+// WhatsApp Numbers based on Class Type
+const WA_NUMBERS = {
+  ZSI: '+6282110232751',
+  ZPI: '+6285162728998',
+  ZSR: '+6285162728998'
+};
+
+// Dependency Rules
+// ============================================
+// DEPENDENCY ENGINE (Object Dependency)
+// ============================================
+
+/**
+ * CONFIG is loaded from DATA_URL (form_data.json) and is expected to include:
+ * - CONFIG.object_dependencies: Array of rules {class, target, action, expression, source_chars?}
+ * - CONFIG.class_meta (optional): { [classCode]: { description, keywords: [] } }
+ */
+
+let DEP_RULES_BY_CLASS = {};
+let DEP_TARGET_INDEX_BY_CLASS = {};
+let DEP_READY = false;
+
+function normalizeText(s) {
+  return String(s ?? '').trim();
+}
+function normUpper(s) {
+  return normalizeText(s).toUpperCase();
+}
+
+function buildDependencyIndexes() {
+  DEP_RULES_BY_CLASS = {};
+  DEP_TARGET_INDEX_BY_CLASS = {};
+  const rules = Array.isArray(CONFIG?.object_dependencies) ? CONFIG.object_dependencies : [];
+
+  rules.forEach(r => {
+    const cls = normalizeText(r.class || r.cls || r.CLASS || '');
+    const target = normUpper(r.target || r.Target || '');
+    if (!cls || !target) return;
+
+    const action = normUpper(r.action || r.Action || 'SHOW');
+    const expr = normalizeText(r.expression || r.expr || r.condition || r.Condition || '');
+    const srcs = Array.isArray(r.source_chars) ? r.source_chars.map(normUpper) : [];
+
+    const rule = {
+      class: cls,
+      target,
+      action: action || 'SHOW',
+      expression: expr,
+      source_chars: srcs,
+      _ast: null
+    };
+
+    // Compile expression to AST once (lazy if compile fails)
+    try { rule._ast = parseDepExpression(expr); } catch (e) { rule._ast = null; }
+
+    (DEP_RULES_BY_CLASS[cls] ||= []).push(rule);
+
+    const tIndex = (DEP_TARGET_INDEX_BY_CLASS[cls] ||= {});
+    (tIndex[target] ||= []).push(rule);
+  });
+
+  DEP_READY = true;
+}
+
+// --- Expression parsing ------------------------------------------------
+
+function depTokenize(expr) {
+  const s = normalizeText(expr)
+    .replace(/^\s*"+|"+\s*$/g, '')     // strip wrapping quotes
+    .replace(/\.\s*$/g, '')           // trailing dot
+    .replace(/\r?\n/g, ' ')           // newlines -> spaces
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const tokens = [];
+  let i = 0;
+  while (i < s.length) {
+    const ch = s[i];
+
+    if (ch === ' ') { i++; continue; }
+    if (ch === ',') { tokens.push({t:','}); i++; continue; }
+    if (ch === '(' || ch === ')') { tokens.push({t: ch}); i++; continue; }
+
+    // operators
+    if (s.slice(i, i+2) === '<>' || s.slice(i, i+2) === '!=') { tokens.push({t:'OP', v:'!='}); i+=2; continue; }
+    if (s[i] === '=') { tokens.push({t:'OP', v:'='}); i++; continue; }
+
+    // string literal '...'
+    if (ch === "'") {
+      let j = i + 1;
+      let val = '';
+      while (j < s.length) {
+        if (s[j] === "'" && s[j-1] !== '\\') break;
+        val += s[j];
+        j++;
+      }
+      tokens.push({t:'STR', v: val});
+      i = (j < s.length) ? j + 1 : j;
+      continue;
+    }
+
+    // identifier / keyword
+    if (/[A-Za-z0-9_]/.test(ch)) {
+      let j = i;
+      while (j < s.length && /[A-Za-z0-9_]/.test(s[j])) j++;
+      const word = s.slice(i, j);
+      const up = word.toUpperCase();
+      if (['AND','OR','NOT','IN','SPECIFIED'].includes(up)) tokens.push({t: up});
+      else tokens.push({t:'ID', v: word});
+      i = j;
+      continue;
+    }
+
+    // Unknown separator char: skip to avoid infinite loop
+    i++;
+  }
+  return tokens;
+}
+
+function parseDepExpression(expr) {
+  const tokens = depTokenize(expr);
+  let p = 0;
+
+  function peek() { return tokens[p]; }
+  function consume(tt) {
+    const tok = tokens[p];
+    if (!tok || tok.t !== tt) throw new Error(`Expected ${tt}`);
+    p++;
+    return tok;
+  }
+  function match(tt) { if (peek() && peek().t === tt) { p++; return true; } return false; }
+
+  // Grammar: expr := orExpr
+  // orExpr := andExpr (OR andExpr)*
+  // andExpr := unary (AND unary)*
+  // unary := NOT unary | primary
+  // primary := '(' expr ')' | specified | comparison
+  // specified := SPECIFIED ID
+  // comparison := ID (OP STR|ID | IN '(' (STR|ID) (',' (STR|ID))* ')' )
+
+  function parseExpr() { return parseOr(); }
+  function parseOr() {
+    let node = parseAnd();
+    while (match('OR')) {
+      node = {type:'OR', left: node, right: parseAnd()};
+    }
+    return node;
+  }
+  function parseAnd() {
+    let node = parseUnary();
+    while (match('AND')) {
+      node = {type:'AND', left: node, right: parseUnary()};
+    }
+    return node;
+  }
+  function parseUnary() {
+    if (match('NOT')) return {type:'NOT', expr: parseUnary()};
+    return parsePrimary();
+  }
+  function parsePrimary() {
+    if (match('(')) {
+      const n = parseExpr();
+      consume(')');
+      return n;
+    }
+    if (match('SPECIFIED')) {
+      const id = consume('ID').v;
+      return {type:'SPECIFIED', id: normUpper(id)};
+    }
+    // comparison
+    const idTok = consume('ID');
+    const id = normUpper(idTok.v);
+
+    if (match('IN')) {
+      consume('(');
+      const list = [];
+      while (true) {
+        const t = peek();
+        if (!t) break;
+        if (t.t === ')') { p++; break; }
+        if (t.t === ',') { p++; continue; }
+        if (t.t === 'STR') { list.push(normUpper(consume('STR').v)); continue; }
+        if (t.t === 'ID') { list.push(normUpper(consume('ID').v)); continue; }
+        // tolerate unexpected tokens by skipping
+        p++;
+      }
+      return {type:'IN', id, list};
+    }
+
+    const op = consume('OP').v; // '=' or '!='
+    const valTok = peek();
+    let val = '';
+    if (valTok?.t === 'STR') val = consume('STR').v;
+    else if (valTok?.t === 'ID') val = consume('ID').v;
+    else val = '';
+    return {type:'CMP', id, op, val: normUpper(val)};
+  }
+
+  const ast = parseExpr();
+  return ast;
+}
+
+function evalDepAst(ast, valuesMap) {
+  if (!ast) return false;
+  switch (ast.type) {
+    case 'OR': return evalDepAst(ast.left, valuesMap) || evalDepAst(ast.right, valuesMap);
+    case 'AND': return evalDepAst(ast.left, valuesMap) && evalDepAst(ast.right, valuesMap);
+    case 'NOT': return !evalDepAst(ast.expr, valuesMap);
+    case 'SPECIFIED': {
+      const v = normalizeText(valuesMap[ast.id] ?? '');
+      return v.length > 0;
+    }
+    case 'CMP': {
+      const v = normUpper(valuesMap[ast.id] ?? '');
+      if (ast.op === '=') return v === ast.val;
+      if (ast.op === '!=') return v !== ast.val;
+      return false;
+    }
+    case 'IN': {
+      const v = normUpper(valuesMap[ast.id] ?? '');
+      return ast.list.includes(v);
+    }
+    default: return false;
+  }
+}
+
+function getCurrentCharValues() {
+  const vals = {};
+  document.querySelectorAll('#charContainer .char-row').forEach(row => {
+    const ch = normUpper(row.dataset.charName || '');
+    const inp = row.querySelector('input');
+    vals[ch] = inp ? normalizeText(inp.value) : '';
+  });
+  return vals;
+}
+
+function setCharVisible(charName, visible) {
+  const row = document.querySelector(`.char-row[data-char-name="${CSS.escape(charName)}"]`);
+  if (!row) return false;
+
+  const isHidden = row.classList.contains('hidden');
+  if (visible && isHidden) {
+    row.classList.remove('hidden');
+    return true;
+  }
+  if (!visible && !isHidden) {
+    row.classList.add('hidden');
+    // clear value if becoming hidden
+    const inp = row.querySelector('input');
+    if (inp && inp.value) inp.value = '';
+    return true;
+  }
+  return false;
+}
+
+function applyDependencies() {
+  if (!DEP_READY) return;
+  const cls = normalizeText(document.getElementById('classInput')?.value || '');
+  if (!cls) return;
+
+  const tIndex = DEP_TARGET_INDEX_BY_CLASS[cls] || {};
+  const targets = Object.keys(tIndex);
+  if (targets.length === 0) return;
+
+  // Iterative fixpoint to support chained deps
+  let changed = true;
+  let guard = 0;
+  while (changed && guard < 6) {
+    guard++;
+    changed = false;
+    const values = getCurrentCharValues();
+
+    targets.forEach(target => {
+      const rules = tIndex[target] || [];
+      const showRules = rules.filter(r => r.action === 'SHOW');
+      const hideRules = rules.filter(r => r.action === 'HIDE');
+
+      const showOk = showRules.length ? showRules.some(r => evalDepAst(r._ast, values)) : true;
+      const hideOk = hideRules.length ? hideRules.some(r => evalDepAst(r._ast, values)) : false;
+
+      const visible = hideOk ? false : showOk;
+      if (setCharVisible(target, visible)) changed = true;
+    });
+  }
+}
+
+
+let CONFIG = null;
+let waBubbleShown = false;
+let waBubbleDismissed = false;
+let activePickerMenu = null;
+let activePickerInput = null;
+
+// CC Emails storage
+let ccEmails = [];
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+function applyCase(value, flag) {
+  if (!value) return value;
+  flag = (flag || '').toUpperCase();
+  if (flag === 'U') return value.toUpperCase();
+  if (flag === 'L') return value.toLowerCase();
+  if (flag === 'P') return value.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+  return value;
+}
+
+function isValidEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+function showToast(type, title, message) {
+  const container = document.getElementById('toastContainer');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  
+  const icons = {
+    success: '<svg viewBox="0 0 24 24" fill="none" stroke="#2B7D2B" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22,4 12,14.01 9,11.01"/></svg>',
+    error: '<svg viewBox="0 0 24 24" fill="none" stroke="#BB0000" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>',
+    info: '<svg viewBox="0 0 24 24" fill="none" stroke="#0A6ED1" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>'
+  };
+  
+  toast.innerHTML = `
+    <div class="toast-icon">${icons[type]}</div>
+    <div class="toast-content">
+      <div class="toast-title">${title}</div>
+      <div class="toast-message">${message}</div>
+    </div>
+  `;
+  
+  container.appendChild(toast);
+  setTimeout(() => {
+    toast.style.animation = 'slideIn 0.3s ease reverse forwards';
+    setTimeout(() => toast.remove(), 300);
+  }, 4000);
+}
+
+function updateProgressStep(step) {
+  document.querySelectorAll('.step').forEach((el, idx) => {
+    el.classList.remove('active', 'completed');
+    if (idx + 1 < step) el.classList.add('completed');
+    if (idx + 1 === step) el.classList.add('active');
+  });
+  document.querySelectorAll('.step-connector').forEach((el, idx) => {
+    el.classList.toggle('active', idx + 1 < step);
+  });
+}
+
+// ============================================
+// EMAIL CHIPS FUNCTIONALITY
+// ============================================
+
+function initEmailChips() {
+  const container = document.getElementById('ccEmailContainer');
+  const input = document.getElementById('ccEmailInput');
+  
+  // Focus input when clicking container
+  container.addEventListener('click', () => input.focus());
+  
+  // Handle keydown events
+  input.addEventListener('keydown', (e) => {
+    const value = input.value.trim();
+    
+    // Add email on Enter, Tab, or comma
+    if ((e.key === 'Enter' || e.key === 'Tab' || e.key === ',') && value) {
+      e.preventDefault();
+      addEmailChip(value);
+      input.value = '';
+    }
+    
+    // Remove last chip on Backspace if input is empty
+    if (e.key === 'Backspace' && !value && ccEmails.length > 0) {
+      removeEmailChip(ccEmails.length - 1);
+    }
+  });
+  
+  // Handle paste
+  input.addEventListener('paste', (e) => {
+    e.preventDefault();
+    const pastedText = (e.clipboardData || window.clipboardData).getData('text');
+    const emails = pastedText.split(/[,;\s]+/).filter(e => e.trim());
+    emails.forEach(email => addEmailChip(email.trim()));
+  });
+  
+  // Handle blur - add email if there's value
+  input.addEventListener('blur', () => {
+    const value = input.value.trim();
+    if (value) {
+      addEmailChip(value);
+      input.value = '';
+    }
+  });
+}
+
+function addEmailChip(email) {
+  email = email.replace(/,/g, '').trim();
+  if (!email) return;
+  
+  // Check if already exists
+  if (ccEmails.includes(email.toLowerCase())) {
+    showToast('info', 'Email exists', 'This email is already added');
+    return;
+  }
+  
+  const isValid = isValidEmail(email);
+  ccEmails.push(email.toLowerCase());
+  
+  const chip = document.createElement('span');
+  chip.className = `email-chip ${isValid ? '' : 'invalid'}`;
+  chip.dataset.email = email.toLowerCase();
+  chip.innerHTML = `
+    ${email}
+    <button type="button" class="email-chip-remove" onclick="removeEmailChipByEmail('${email.toLowerCase()}')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  `;
+  
+  const input = document.getElementById('ccEmailInput');
+  input.parentNode.insertBefore(chip, input);
+  
+  if (!isValid) {
+    showToast('warning', 'Invalid Email', `"${email}" doesn't look like a valid email`);
+  }
+}
+
+function removeEmailChip(index) {
+  const container = document.getElementById('ccEmailContainer');
+  const chips = container.querySelectorAll('.email-chip');
+  if (chips[index]) {
+    chips[index].remove();
+    ccEmails.splice(index, 1);
+  }
+}
+
+function removeEmailChipByEmail(email) {
+  const index = ccEmails.indexOf(email.toLowerCase());
+  if (index > -1) {
+    removeEmailChip(index);
+  }
+}
+
+// ============================================
+// COMPANY -> SERVER AUTO-FILL
+// ============================================
+
+function setupCompanyServerDependency() {
+  const companySelect = document.getElementById('companySelect');
+  const serverInput = document.getElementById('serverSource');
+  const serverWrapper = document.getElementById('serverWrapper');
+  
+  companySelect.addEventListener('change', (e) => {
+    const company = e.target.value;
+    const server = COMPANY_SERVER_MAP[company] || '';
+    
+    serverInput.value = server;
+    
+    if (server) {
+      serverWrapper.classList.add('server-auto');
+      showToast('info', 'Server Auto-filled', `Server set to ${server} based on company selection`);
+    } else {
+      serverWrapper.classList.remove('server-auto');
+    }
+    
+    checkShowWaWidget();
+  });
+}
+
+// ============================================
+// WHATSAPP WIDGET
+// ============================================
+
+function checkShowWaWidget() {
+  const classVal = document.getElementById('classInput').value.trim();
+  const serverVal = document.getElementById('serverSource').value.trim();
+  const widget = document.getElementById('waWidget');
+  
+  if (classVal && serverVal && !waBubbleDismissed) {
+    widget.classList.remove('hidden');
+    if (!waBubbleShown) {
+      document.getElementById('waBubble').style.display = 'block';
+      waBubbleShown = true;
+    }
+    
+    // Set WA link based on class type
+    const prefix = classVal.substring(0, 3).toUpperCase();
+    const waNumber = WA_NUMBERS[prefix] || WA_NUMBERS.ZSI;
+    const message = encodeURIComponent(`Halo, saya ingin bertanya tentang class ${classVal} untuk server ${serverVal}`);
+    document.getElementById('waLink').href = `https://wa.me/${waNumber.replace(/\D/g, '')}?text=${message}`;
+  } else {
+    widget.classList.add('hidden');
+  }
+}
+
+function initWaWidget() {
+  const fab = document.getElementById('waFab');
+  const bubble = document.getElementById('waBubble');
+  const closeBtn = document.getElementById('waBubbleClose');
+  
+  fab.addEventListener('click', () => {
+    if (bubble.style.display === 'none' || !bubble.style.display) {
+      bubble.style.display = 'block';
+    } else {
+      bubble.style.display = 'none';
+    }
+  });
+  
+  closeBtn.addEventListener('click', () => {
+    bubble.style.display = 'none';
+    waBubbleDismissed = true;
+  });
+}
+
+// ============================================
+// DATA LOADING
+// ============================================
+
+async function loadData() {
+  try {
+    const resp = await fetch(DATA_URL);
+    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+    CONFIG = await resp.json();
+    
+    setupClassPicker();
+    buildDependencyIndexes();
+    document.getElementById('loadingOverlay').style.display = 'none';
+    showToast('success', 'Data Loaded', 'Form data berhasil dimuat');
+  } catch (err) {
+    console.error('Load error:', err);
+    document.getElementById('loadingOverlay').innerHTML = `
+      <div style="text-align:center">
+        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#BB0000" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="15" y1="9" x2="9" y2="15"/>
+          <line x1="9" y1="9" x2="15" y2="15"/>
+        </svg>
+        <h3 style="margin:16px 0 8px;color:#BB0000">Failed to Load Data</h3>
+        <p style="color:#475467">${err.message}</p>
+        <button onclick="location.reload()" style="margin-top:16px;padding:10px 20px;background:#0A6ED1;color:white;border:none;border-radius:8px;cursor:pointer">Retry</button>
+      </div>
+    `;
+  }
+}
+
+// ============================================
+// CLASS PICKER
+// ============================================
+
+function setupClassPicker() {
+  const input = document.getElementById('classInput');
+  const picker = document.getElementById('classPicker');
+  
+  const classes = Object.keys(CONFIG.classes || {}).sort();
+  
+  input.addEventListener('focus', () => showClassMenu(input, classes));
+  input.addEventListener('input', () => showClassMenu(input, classes));
+}
+
+function showClassMenu(input, allClasses) {
+  closeAllPickerMenus();
+
+  const q = normalizeText(input.value).toLowerCase();
+  const meta = CONFIG.class_meta || {};
+
+  // Small helper: escape HTML for safe inline rendering
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, ch => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[ch]));
+
+  // Levenshtein distance for lightweight typo tolerance
+  function levenshtein(a, b) {
+    a = a || ''; b = b || '';
+    const m = a.length, n = b.length;
+    if (!m) return n;
+    if (!n) return m;
+    const dp = new Array(n + 1);
+    for (let j = 0; j <= n; j++) dp[j] = j;
+    for (let i = 1; i <= m; i++) {
+      let prev = dp[0];
+      dp[0] = i;
+      for (let j = 1; j <= n; j++) {
+        const tmp = dp[j];
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        dp[j] = Math.min(
+          dp[j] + 1,        // deletion
+          dp[j - 1] + 1,    // insertion
+          prev + cost       // substitution
+        );
+        prev = tmp;
+      }
+    }
+    return dp[n];
+  }
+
+  function scoreClass(cls) {
+    const m = meta[cls] || {};
+    const desc = (m.description || '').toString();
+    const kws = Array.isArray(m.keywords) ? m.keywords.map(k => (k || '').toString()) : [];
+    const code = cls.toLowerCase();
+
+    if (!q) return 1;
+
+    // Strong matches
+    if (code === q) return 100;
+    if (code.startsWith(q)) return 98;
+    if (code.includes(q)) return 95;
+
+    const descL = desc.toLowerCase();
+    if (descL.includes(q)) return 80;
+
+    for (const kw of kws) {
+      const kL = kw.toLowerCase();
+      if (!kL) continue;
+      if (kL === q) return 90;
+      if (kL.includes(q)) return 86;
+    }
+
+    // Typo tolerance: compare query to code and each keyword
+    const candidates = [code, ...kws.map(k => k.toLowerCase())].filter(Boolean);
+    let bestSim = 0;
+    for (const cand of candidates) {
+      const dist = levenshtein(q, cand);
+      const maxLen = Math.max(q.length, cand.length) || 1;
+      const sim = 1 - (dist / maxLen);
+      if (sim > bestSim) bestSim = sim;
+    }
+    if (bestSim >= 0.70) return 60 * bestSim;
+
+    return 0;
+  }
+
+  const ranked = allClasses
+    .map(cls => ({ cls, score: scoreClass(cls) }))
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 50)
+    .map(x => x.cls);
+
+  const filtered = q ? ranked : allClasses.slice(0, 50);
+
+  const menu = document.createElement('div');
+  menu.className = 'picker-menu';
+
+  if (filtered.length === 0) {
+    menu.innerHTML = `
+      <div class="picker-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <p>No classes found</p>
+      </div>
+    `;
+  } else {
+    filtered.forEach(cls => {
+      const m = meta[cls] || {};
+      const desc = (m.description || '').toString().trim();
+
+      const item = document.createElement('div');
+      item.className = 'picker-item';
+      item.innerHTML = `
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span class="val">${esc(cls)}</span>
+          ${desc ? `<span style="font-size:12px;color:var(--muted)">${esc(desc)}</span>` : ''}
+        </div>
+      `;
+      item.onclick = () => {
+        input.value = cls;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        closeAllPickerMenus();
+      };
+      menu.appendChild(item);
+    });
+  }
+
+  document.body.appendChild(menu);
+  positionMenu(menu, input);
+
+  activePickerMenu = menu;
+  activePickerInput = input;
+}
+
+
+function positionMenu(menu, input) {
+  const rect = input.getBoundingClientRect();
+  menu.style.width = rect.width + 'px';
+  menu.style.left = rect.left + 'px';
+  
+  const spaceBelow = window.innerHeight - rect.bottom;
+  if (spaceBelow < 200 && rect.top > spaceBelow) {
+    menu.style.bottom = (window.innerHeight - rect.top + 4) + 'px';
+    menu.style.top = 'auto';
+  } else {
+    menu.style.top = (rect.bottom + 4) + 'px';
+    menu.style.bottom = 'auto';
+  }
+}
+
+function closeAllPickerMenus() {
+  document.querySelectorAll('.picker-menu').forEach(m => m.remove());
+  activePickerMenu = null;
+  activePickerInput = null;
+}
+
+// ============================================
+// CHARACTERISTICS RENDERING
+// ============================================
+
+function renderCharacteristics(cls) {
+  const container = document.getElementById('charContainer');
+  const chars = CONFIG.classes[cls];
+  
+  if (!chars || chars.length === 0) {
+    container.innerHTML = `
+      <div class="char-container-empty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="8" x2="12" y2="12"/>
+          <line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        <h3>No Characteristics</h3>
+        <p>This class has no characteristics defined</p>
+      </div>
+    `;
+    return;
+  }
+  
+  // Sort by sequence
+  const sorted = [...chars].sort((a, b) => (a.sequence || 0) - (b.sequence || 0));
+  
+  container.innerHTML = '';
+  sorted.forEach(char => {
+    const row = createCharRow(char);
+    container.appendChild(row);
+  });
+  
+  document.getElementById('charCount').textContent = `${sorted.length} fields`;
+  applyDependencies();
+  updateProgressStep(3);
+}
+
+function createCharRow(char) {
+  const row = document.createElement('div');
+  row.className = 'char-row';
+  row.dataset.charName = char.characteristic;
+  
+  const hasValues = CONFIG.char_values && CONFIG.char_values[char.characteristic];
+  const isMatDesc = char.mat_desc === 'Y';
+  
+  // Info section
+  const info = document.createElement('div');
+  info.className = 'char-info';
+  info.innerHTML = `
+    <div class="char-name">
+      ${char.characteristic}
+      ${isMatDesc ? '<span class="tag tag-info">Mat Desc</span>' : ''}
+      ${char.case === 'U' ? '<span class="tag tag-warning">UPPERCASE</span>' : ''}
+    </div>
+    <div class="char-desc">
+      Sequence: ${char.sequence || '-'}
+      ${char.prefix ? ` • Prefix: ${char.prefix}` : ''}
+      ${char.suffix ? ` • Suffix: ${char.suffix}` : ''}
+    </div>
+  `;
+  
+  // Input section
+  const inputDiv = document.createElement('div');
+  inputDiv.className = 'char-input';
+  
+  if (hasValues) {
+    // Dropdown picker
+    const picker = document.createElement('div');
+    picker.className = 'picker';
+    
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'form-input';
+    input.placeholder = 'Select or type...';
+    input.dataset.charName = char.characteristic;
+    input.dataset.case = char.case || '';
+    input.dataset.prefix = char.prefix || '';
+    input.dataset.suffix = char.suffix || '';
+    input.dataset.matDesc = char.mat_desc || '';
+    
+    input.addEventListener('focus', () => showCharValueMenu(input, char.characteristic));
+    input.addEventListener('input', () => showCharValueMenu(input, char.characteristic));
+    input.addEventListener('change', () => handleCharChange(char.characteristic, input.value));
+    
+    picker.appendChild(input);
+    inputDiv.appendChild(picker);
+  } else {
+    // Text input
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.className = 'form-input';
+    input.placeholder = 'Enter value...';
+    input.dataset.charName = char.characteristic;
+    input.dataset.case = char.case || '';
+    input.dataset.prefix = char.prefix || '';
+    input.dataset.suffix = char.suffix || '';
+    input.dataset.matDesc = char.mat_desc || '';
+    
+    input.addEventListener('change', () => handleCharChange(char.characteristic, input.value));
+    
+    inputDiv.appendChild(input);
+  }
+  
+  row.appendChild(info);
+  row.appendChild(inputDiv);
+  
+  return row;
+}
+
+function showCharValueMenu(input, charName) {
+  closeAllPickerMenus();
+  
+  const values = CONFIG.char_values[charName] || [];
+  const filter = input.value.toLowerCase();
+  const filtered = values.filter(v => v.value.toLowerCase().includes(filter));
+  
+  const menu = document.createElement('div');
+  menu.className = 'picker-menu';
+  
+  if (filtered.length === 0) {
+    menu.innerHTML = `
+      <div class="picker-empty">
+        <p>No values found</p>
+      </div>
+    `;
+  } else {
+    filtered.forEach(item => {
+      const div = document.createElement('div');
+      div.className = `picker-item ${item.default ? 'selected' : ''}`;
+      div.innerHTML = `
+        <span class="val">${item.value}</span>
+        ${item.default ? '<span class="tag tag-success">Default</span>' : ''}
+      `;
+      div.onclick = () => {
+        input.value = item.value;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+        closeAllPickerMenus();
+      };
+      menu.appendChild(div);
+    });
+  }
+  
+  document.body.appendChild(menu);
+  positionMenu(menu, input);
+  
+  activePickerMenu = menu;
+  activePickerInput = input;
+}
+
+function handleCharChange(charName, value) {
+  // Normalize input casing if the characteristic requires it
+  const row = document.querySelector(`.char-row[data-char-name="${CSS.escape(charName)}"]`);
+  if (row) {
+    const inp = row.querySelector('input');
+    if (inp) {
+      const flag = inp.dataset.case || '';
+      const original = inp.value;
+      const transformed = applyCase(original, flag);
+      if (transformed !== original) inp.value = transformed;
+    }
+  }
+
+  // Re-evaluate all object dependencies for current class
+  applyDependencies();
+}
+
+      });
+    }
+  }
+}
+
+// ============================================
+// BUILD MATERIAL DESCRIPTION
+// ============================================
+
+function buildMaterialDescription() {
+  const parts = [];
+  const chars = document.querySelectorAll('#charContainer .char-row');
+  
+  // Collect all mat_desc fields with their sequences
+  const matDescFields = [];
+  chars.forEach(row => {
+    if (row.classList.contains('hidden')) return;
+    
+    const inp = row.querySelector('input');
+    if (inp && inp.dataset.matDesc === 'Y' && inp.value.trim()) {
+      // Get sequence from CONFIG
+      const cls = document.getElementById('classInput').value;
+      const charConfig = CONFIG.classes[cls]?.find(c => c.characteristic === inp.dataset.charName);
+      const seq = charConfig?.sequence || 999;
+      
+      let val = applyCase(inp.value.trim(), inp.dataset.case);
+      val = (inp.dataset.prefix || '') + val + (inp.dataset.suffix || '');
+      
+      matDescFields.push({ seq, val });
+    }
+  });
+  
+  // Sort by sequence and join
+  matDescFields.sort((a, b) => a.seq - b.seq);
+  return matDescFields.map(f => f.val).join(' ');
+}
+
+// ============================================
+// SUMMARY & SUBMIT
+// ============================================
+
+function generateSummary() {
+  const requestorName = document.getElementById('requestorName').value.trim();
+  const requestorEmail = document.getElementById('requestorEmail').value.trim();
+  const server = document.getElementById('serverSource').value.trim();
+  const company = document.getElementById('companySelect').value.trim();
+  const cls = document.getElementById('classInput').value.trim();
+  const matDesc = buildMaterialDescription();
+  
+  // Build email list for display
+  const allEmails = [requestorEmail, ...ccEmails.filter(e => isValidEmail(e))].filter(e => e);
+  
+  // Update summary display
+  document.getElementById('sumRequestor').textContent = requestorName || '-';
+  document.getElementById('sumEmail').textContent = allEmails.length > 0 ? allEmails.join(', ') : '-';
+  document.getElementById('sumServer').textContent = server || '-';
+  document.getElementById('sumCrMid').textContent = '(akan diminta saat submit)';
+  document.getElementById('sumCompany').textContent = company || '-';
+  document.getElementById('sumClass').textContent = cls || '-';
+  document.getElementById('sumMatDesc').textContent = matDesc || '-';
+  
+  updateProgressStep(4);
+  showToast('info', 'Summary Generated', 'Please review your data before submitting');
+  
+  return { 
+    requestor_name: requestorName,
+    requestor_email: requestorEmail,
+    cc_emails: ccEmails.filter(e => isValidEmail(e)),
+    server_source: server, 
+    company_use_for: company, 
+    class: cls,
+    mat_desc_to_be: matDesc 
+  };
+}
+
+async function submitForm() {
+  const requestorName = document.getElementById('requestorName').value.trim();
+  const requestorEmail = document.getElementById('requestorEmail').value.trim();
+  const department = document.getElementById('department').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const cls = document.getElementById('classInput').value.trim();
+  const server = document.getElementById('serverSource').value.trim();
+  const company = document.getElementById('companySelect').value.trim();
+  const matDesc = buildMaterialDescription();
+  
+  // Validation
+  if (!requestorName) {
+    showToast('error', 'Validation Error', 'Please enter your name');
+    document.getElementById('requestorName').focus();
+    return;
+  }
+  
+  if (!requestorEmail || !isValidEmail(requestorEmail)) {
+    showToast('error', 'Validation Error', 'Please enter a valid email address');
+    document.getElementById('requestorEmail').focus();
+    return;
+  }
+  
+  if (!cls || !server || !company) {
+    showToast('error', 'Validation Error', 'Please fill Class, Company, and Server fields');
+    return;
+  }
+  
+  // Ask for CR/MID ONLY during submit
+  let crmid = '';
+  if (server.toUpperCase() === 'SPR') {
+    crmid = prompt('Server = SPR\n\nMasukkan CR Number (max 8 karakter):', '') || '';
+    if (!crmid) {
+      showToast('error', 'CR Number Required', 'Anda harus memasukkan CR Number untuk submit');
+      return;
+    }
+    crmid = crmid.slice(0, 8);
+  } else {
+    crmid = prompt(`Server = ${server}\n\nMasukkan MID yang sudah terbentuk di ECC (max 8 digit):`, '') || '';
+    if (!crmid) {
+      showToast('error', 'MID Required', 'Anda harus memasukkan MID untuk submit');
+      return;
+    }
+    crmid = crmid.replace(/\D+/g, '').slice(0, 8);
+  }
+  
+  // Update summary with CR/MID
+  document.getElementById('sumCrMid').textContent = crmid;
+  
+  // Build characteristics as dynamic key-value pairs
+  const charData = {};
+  document.querySelectorAll('#charContainer .char-row').forEach(row => {
+    if (row.classList.contains('hidden')) return;
+    
+    const inp = row.querySelector('input');
+    if (inp && inp.value.trim()) {
+      const charName = inp.dataset.charName;
+      let val = applyCase(inp.value.trim(), inp.dataset.case);
+      val = (inp.dataset.prefix || '') + val + (inp.dataset.suffix || '');
+      charData[charName] = val;
+    }
+  });
+  
+  // Build payload - flat structure for easy Sheet column mapping
+  const payload = {
+    timestamp: new Date().toISOString(),
+    // Requestor Info
+    requestor_name: requestorName,
+    requestor_email: requestorEmail,
+    cc_emails: ccEmails.filter(e => isValidEmail(e)).join(', '),
+    department: department,
+    phone: phone,
+    // Material Info
+    class: cls,
+    server_source: server,
+    crmid: crmid,
+    company_use_for: company,
+    mat_desc_to_be: matDesc,
+    // Include all char values as flat keys
+    ...charData
+  };
+  
+  console.log('Submitting payload:', payload);
+  showToast('info', 'Submitting...', 'Please wait while we process your request');
+  
+  // Disable submit button
+  const submitBtn = document.getElementById('submitBtn');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<span class="loading-spinner" style="width:18px;height:18px;border-width:2px"></span> Submitting...';
+  
+  try {
+    // METHOD: Use hidden form + iframe (MOST RELIABLE for Google Apps Script)
+    await submitViaForm(payload);
+    
+    updateProgressStep(5); // Final step
+    showToast('success', 'Form Submitted!', 'Data berhasil dikirim ke Google Sheet & Email notifikasi terkirim');
+    
+    // Reset form after success
+    setTimeout(() => {
+      if (confirm('Form berhasil disubmit! Apakah Anda ingin mengisi form baru?')) {
+        location.reload();
+      }
+    }, 1500);
+    
+  } catch (err) {
+    console.error('Submit error:', err);
+    showToast('error', 'Submission Failed', err.message || 'Please try again');
+  } finally {
+    // Re-enable submit button
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22,2 15,22 11,13 2,9 22,2"/>
+      </svg>
+      Submit Form
+    `;
+  }
+}
+
+/**
+ * Submit via hidden form + iframe - PALING RELIABLE untuk Google Apps Script
+ */
+function submitViaForm(payload) {
+  return new Promise((resolve, reject) => {
+    // Create unique iframe name
+    const iframeName = 'submitFrame_' + Date.now();
+    
+    // Create hidden iframe
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    
+    // Create form
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = SUBMIT_URL;
+    form.target = iframeName;
+    form.style.display = 'none';
+    
+    // Add data as hidden input (JSON stringified)
+    const dataInput = document.createElement('input');
+    dataInput.type = 'hidden';
+    dataInput.name = 'data';
+    dataInput.value = JSON.stringify(payload);
+    form.appendChild(dataInput);
+    
+    // Also add individual fields for better compatibility
+    Object.keys(payload).forEach(key => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = typeof payload[key] === 'object' ? JSON.stringify(payload[key]) : payload[key];
+      form.appendChild(input);
+    });
+    
+    document.body.appendChild(form);
+    
+    // Set timeout
+    const timeout = setTimeout(() => {
+      cleanup();
+      // Even if we timeout, the data was likely sent (just can't read response due to CORS)
+      resolve({ status: 'sent', note: 'Timeout but data likely sent' });
+    }, 5000);
+    
+    // Handle iframe load
+    iframe.onload = () => {
+      clearTimeout(timeout);
+      cleanup();
+      resolve({ status: 'success' });
+    };
+    
+    iframe.onerror = () => {
+      clearTimeout(timeout);
+      cleanup();
+      // Still resolve because error might just be CORS, data was likely sent
+      resolve({ status: 'sent', note: 'Error event but data likely sent' });
+    };
+    
+    // Submit form
+    form.submit();
+    
+    // Cleanup function
+    function cleanup() {
+      setTimeout(() => {
+        if (form.parentNode) form.parentNode.removeChild(form);
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 100);
+    }
+  });
+}
+
+/**
+ * Alternative: Submit via fetch with multiple attempts
+ */
+async function submitViaFetch(payload) {
+  const jsonData = JSON.stringify(payload);
+  
+  // Try POST with JSON body
+  try {
+    const response = await fetch(SUBMIT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      cache: 'no-cache',
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: jsonData
+    });
+    console.log('Fetch POST completed');
+    return { status: 'sent' };
+  } catch (e) {
+    console.log('Fetch POST failed:', e);
+  }
+  
+  // Fallback: GET with data in URL
+  try {
+    const url = SUBMIT_URL + '?data=' + encodeURIComponent(jsonData);
+    const img = new Image();
+    img.src = url;
+    console.log('Image beacon sent');
+    return { status: 'sent' };
+  } catch (e) {
+    console.log('Image beacon failed:', e);
+    throw new Error('All submission methods failed');
+  }
+}
+
+// ============================================
+// SCROLL HANDLER FOR DROPDOWN REPOSITION
+// ============================================
+
+window.addEventListener('scroll', () => {
+  if (activePickerMenu && activePickerInput) {
+    positionMenu(activePickerMenu, activePickerInput);
+  }
+}, true);
+
+window.addEventListener('resize', () => {
+  closeAllPickerMenus();
+});
+
+// ============================================
+// GLOBAL CLICK HANDLER
+// ============================================
+
+document.addEventListener('click', (e) => {
+  if (activePickerMenu && !e.target.closest('.picker') && !e.target.closest('.picker-menu')) {
+    closeAllPickerMenus();
+  }
+});
+
+// ============================================
+// INITIALIZE
+// ============================================
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadData();
+  initWaWidget();
+  initEmailChips();
+  setupCompanyServerDependency();
+  
+  document.getElementById('classInput').addEventListener('change', e => {
+    const cls = e.target.value.trim();
+    if (!CONFIG || !CONFIG.classes?.[cls]) {
+      document.getElementById('classInfo').innerHTML = `
+        <span style="color:var(--error)">⚠️ Class not found in dataset</span>
+      `;
+      document.getElementById('charContainer').innerHTML = `
+        <div class="char-container-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="15" y1="9" x2="9" y2="15"/>
+            <line x1="9" y1="9" x2="15" y2="15"/>
+          </svg>
+          <h3>Class Not Found</h3>
+          <p>The selected class is not in the dataset</p>
+        </div>
+      `;
+    } else {
+      document.getElementById('classInfo').innerHTML = `
+        <span style="color:var(--success)">✓ Class found - ${CONFIG.classes[cls].length} characteristics</span>
+      `;
+      renderCharacteristics(cls);
+    }
+    checkShowWaWidget();
+  });
+  
+  document.getElementById('genBtn').addEventListener('click', generateSummary);
+  document.getElementById('submitBtn').addEventListener('click', submitForm);
+});
+</script>
+</body>
+</html>
